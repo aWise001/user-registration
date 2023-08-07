@@ -1,13 +1,7 @@
-import { NextAuthOptions } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const options = {
     providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET
-        }),
         CredentialsProvider({
             name: "Credentials",
             credentials: {
@@ -24,7 +18,6 @@ export const options = {
             },
             async authorize(credentials) {
                 const user = { id: "1", name: "Axel", password: process.env.ADMIN_PASSWORD};
-
                 if(credentials.username === user.name && credentials.password === user.password) {
                     return user;
                 } else {
@@ -33,4 +26,4 @@ export const options = {
             }
         })
     ]
-} 
+};
