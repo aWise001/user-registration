@@ -6,7 +6,7 @@ export default function ListItem({ post }) {
     const formattedDate = getFormattedDate(date)
     return(
         <li className="mt-4 text-2xl">
-            <Link href={`/blog/${id}`}>{title}</Link>
+            <Link href={`/posts/${id}`}>{title}</Link>
             <br />
             <p className="text-sm mt-1">{formattedDate}</p>
         </li>
